@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>반복문 테스트</title>
+</head>
+<body>
+   <table border="1" cellspacing="0" cellpadding="0">
+	   	<tr>
+	   		<th>번호</th>
+	   		<th>아이디</th>
+	   		<th>이름</th>
+	   		<th>이메일</th>
+	   		<th>나이</th>
+	   	</tr>
+	   	
+		<tr th:each="mdto, status:${memberDtos}"><!-- memberDtos모델에서 넘어온 이름 /mdto=var/status에 시퀀스 객체를 넣어준다-->
+			<!-- <tr th:each="mdto:${memberDtos}">와 같다 -->
+			<td th:text="${status.index}-1"></td><!--  index}+2 인덱스에 1씩 더한다/더하기빼기 적용됨-->
+			<td th:text="${mdto.id}">tiger</td>
+			<td th:text="${mdto.name}">김유신</td>
+			<td th:text="${mdto.email}">a@abc.com</td>
+			<td th:text="${mdto.age}">23</td>
+		</tr>   
+		
+	   </table>
+</body>
+</html>
